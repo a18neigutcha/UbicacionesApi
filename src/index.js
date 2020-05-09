@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 
 
 
@@ -12,6 +13,11 @@ app.use(express.json());
 
 
 //Routes
+
+app.get('/',(req,res)=>{
+    res.sendFile(path.join(__dirname + '/dist/index.html'));
+});
+
 
 app.use('/api',require('./routes/lugaresRoutes'));
 
